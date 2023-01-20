@@ -52,6 +52,7 @@ actor {
 
     // 4. Write a function number_of_words that takes a sentence and returns the number of words in the sentence.
     //number_of_words(t : Text) -> async Nat
+
     public func number_of_words(t : Text) : async Nat {
         var count = 1;
         for (x in Text.toIter(t)) {

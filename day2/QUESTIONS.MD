@@ -1,6 +1,6 @@
 1. Who controls the ledger canister?
 
-   ### R: Any one can interact with the ledger, since is a record of every transaction, but control of the ledger perse like alter the records of the ledger no one can, but to add more features to the ledger, anyone who has the identity of the canister and the code.
+   ### R: Any one can interact with the ledger, since is a record of every transaction, but control of the ledger perse like alter the records of the ledger no one can, but to add more features to the ledger, anyone who has the identity of the canister and the code
 
 2. What is the subnet of the canister with the id: mwrha-maaaa-aaaab-qabqq-cai? How much nodes are running this subnet?
 
