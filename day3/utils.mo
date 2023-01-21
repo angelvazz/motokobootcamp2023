@@ -1,7 +1,8 @@
 import Array "mo:base/Array";
 import Nat "mo:base/Nat";
 import Int "mo:base/Int";
-import Buffer "mo:base/Buffer"
+import Buffer "mo:base/Buffer";
+import List "mo:base/List";
 
 actor Utils {
     // 1. In your file called utils.mo: create a function called second_maximum that takes an array [Int] of integers and returns the second largest number in the array.
@@ -25,13 +26,10 @@ actor Utils {
     // ⛔️ Do not use a loop.
     // drop<T> : (xs : [T], n : Nat) -> [T]
 
-    public func drop<T>(array : [T], n : Nat) : async [T] {
-        let buffer = Buffer.Buffer<Nat>(3);
-        for (x in array.vals()) {
-            buffer.add(x);
-        };
-        let x = buffer.remove(n);
-        return Buffer.toArray(buffer);
+    func drop<T>(array : [T], n : Nat) : [T] {
+        var newArray = List.fromArray(array);
+        var dropE = List.drop(newArray, n);
+        return List.toArray<T>(dropE);
     };
 
 };
