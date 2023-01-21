@@ -1,15 +1,16 @@
 import List "mo:base/Array";
 import Buffer "mo:base/Buffer";
+import Iter "mo:base/Iter";
 
 actor {
     // 1. Write a function unique that takes a list l of type List and returns a new list with all duplicate elements removed.
     //unique<T> : (l : List<T>, equal: (T,T) -> Bool) -> List<T>
 
     public func unique<T>(l : List.List<T>) : async List.List<T> {
-        var newList : List.List<T> = List.List.nil<T>();
+        var newList : List.List<T> = List.nil<T>();
 
         for (x in List.toIter<T>(l)) {
-            if (not List.some<T>(list, func a = a == i)) {
+            if (not List.some<T>(newList, func a = a == i)) {
                 newList := List.push<T>(x, newList);
             };
         };
@@ -39,16 +40,15 @@ actor {
 
     // 5. Take a look at the code we've seen before in this guide:
 
-    import HashMap "mo:base/HashMap";
-    import Iter "mo:base/Iter";
-    import Principal "mo:base/Principal";
-    actor {
+    // import HashMap "mo:base/HashMap";
+    // import Iter "mo:base/Iter";
+    // import Principal "mo:base/Principal";
+    // actor {
 
-        let usernames = HashMap.HashMap<Principal, Text>(0, Principal.equal, Principal.hash);
+    let usernames = HashMap.HashMap<Principal, Text>(0, Principal.equal, Principal.hash);
 
-        public shared ({ caller }) func add_username(name : Text) : async () {
-            usernames.put(caller, name);
-        };
+    public shared ({ caller }) func add_username(name : Text) : async () {
+        usernames.put(caller, name);
     };
 
     // Add a function called get_usernames that will return an array of tuples (Principal, Text) which contains all the entries in usernames.
